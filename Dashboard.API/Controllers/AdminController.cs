@@ -50,7 +50,7 @@ namespace Dashboard.API.Controllers
             }
 
             var geoCodingApiKey = _config.GetSection("AppSettings:GeoCodingAPIKey").Value;
-            var locationService = new GoogleLocationService("AIzaSyDy4xtLv_hAsSB_qlJmmhGYlaVEsBKcjsw");
+            var locationService = new GoogleLocationService(geoCodingApiKey);
             var address = locationService.GetAddressFromLatLang(47.5337201, 21.5813013);
             //_settingsRepo.AddDefaultSettings("john");
             return Ok(address);
