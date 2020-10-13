@@ -1,0 +1,77 @@
+<div class="container">
+
+  <!-- Current weather - Wide Mode & Small Mode -->
+  <div class="row row-top" *ngIf="screenWidth >= 1520 || screenWidth <= 575">
+    <div class="col-sm-3 col-main col-main-icon">
+      <i class="main-field main-icon fas fa-{{iconMain}}"></i>
+    </div>
+    <div class="col-sm-3 col-main col-main-temp">
+      <div class="main-field main-temp">{{tempMain}}°C</div>
+    </div>
+    <div class="col-sm-6 col-main col-main-summary">
+      <div class="main-field main-summary">{{summaryMain}}</div>
+    </div>
+  </div>
+
+  <!-- Current weather - Middle Mode -->
+  <div class="row row-top" *ngIf="screenWidth < 1520 && screenWidth > 575">
+    <div class="col">
+      <div class="row top-row-small">
+        <i class="main-icon fas fa-{{iconMain}}"></i>
+      </div>
+
+      <div class="row top-row-small">
+        <div class="main-temp">{{tempMain}}°C</div>
+      </div>
+
+      <div class="row top-row-small">
+        <div class="main-summary">{{summaryMain}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hourly weather -->
+  <div class="row row-middle">
+    <canvas baseChart height="125" [datasets]="lineChartData" [labels]="lineChartLabels" [options]="lineChartOptions"
+      [colors]="lineChartColors" [legend]="false" [chartType]="lineChartType"></canvas>
+  </div>
+
+  <!-- Daily weather - Wide Mode -->
+  <div class="row row-bottom" *ngIf="screenWidth>=1620">
+    <div *ngFor="let day of dailyWeather" class="col-sm daily-weather">
+      <div class="row bottom-field-row text-center">
+        {{day.infoTime}}
+      </div>
+
+      <div class="row bottom-field-row">
+        <i class="daily-icon fas fa-{{day.icon}}"></i>
+      </div>
+
+      <div class="row bottom-field-row">
+        <div class="col">
+          <div class="row bottom-field-subrow">{{day.temperatureMax}}°C</div>
+          <div class="row bottom-field-subrow">{{day.temperatureMin}}°C</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Daily weather - Small Mode -->
+  <div class="row row-bottom" *ngIf="screenWidth<1620">
+    <div class="col">
+      <div *ngFor="let day of dailyWeather" class="row">
+        <div class="col small-col"><i class="daily-icon fas fa-{{day.icon}}"></i></div>
+        <div class="col small-col">{{day.infoTime}}</div>
+        <div class="col small-col">{{day.temperatureMax}}°C</div>
+        <div class="col small-col">{{day.temperatureMin}}°C</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="row row-footer">
+    <div class="col-6 footer-field footer-field-api">Powered by DarkSky</div>
+    <div class="col-6 footer-field footer-field-info">{{sourceCity}} {{queryTime}}</div>
+  </div>
+
+</div>

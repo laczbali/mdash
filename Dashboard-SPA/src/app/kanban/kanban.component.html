@@ -1,0 +1,78 @@
+<!-- Navbar -->
+<div class="container" id="header-container">
+  <div class="row header-row justify-content-between">
+
+    <!-- Router Menus -->
+    <ul class="nav col-sm-auto" [ngClass]="{'nav-small': screenWidth<1024}">
+      <li class="nav-item" routerLinkActive="active" [ngClass]="{'nav-item-small': screenWidth<1024}">
+        <a class="nav-link" [routerLink]="['board']">Board</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" [ngClass]="{'nav-item-small': screenWidth<1024}">
+        <a class="nav-link" [routerLink]="['timeline']">Timeline</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" [ngClass]="{'nav-item-small': screenWidth<1024}">
+        <a class="nav-link" [routerLink]="['projects']">Projects</a>
+      </li>
+    </ul>
+
+    <!-- Filters -->
+    <div class="col-sm-auto">
+      <div class="row filters">
+
+        <!-- SORT BY -->
+        <div ngbDropdown class="d-inline-block" [ngClass]="{'dropdown-filter': screenWidth>1023}" #sortByDropDown="ngbDropdown">
+          <button class="btn btn-filter" id="dropdownForm1" ngbDropdownToggle>Sort By</button>
+          <div ngbDropdownMenu aria-labelledby="sortBy" (mouseleave)="closeDropdown(sortByDropDown)">
+            <form>
+              <label><input type="radio" [formControl]="sortRadio" (change)="sortByChanged()" value="0">Date</label><br>
+              <label><input type="radio" [formControl]="sortRadio" (change)="sortByChanged()" value="1">Name</label><br>
+              <label><input type="radio" [formControl]="sortRadio" (change)="sortByChanged()" value="2">Priority</label><br>
+              <label><input type="radio" [formControl]="sortRadio" (change)="sortByChanged()" value="3">Project</label><br>
+              <label><input type="radio" [formControl]="sortRadio" (change)="sortByChanged()" value="4">Story</label>
+            </form>
+            <div class="dropdown-divider"></div>
+            <div>
+              <label><input type="checkbox" [formControl]="customSort" (change)="customSortChanged()">Allow Custom Order</label>
+            </div>
+          </div>
+        </div>
+
+        <!-- FILTER PROJECT (Show only high/normal/low checkbox dropdown) -->
+        <div ngbDropdown class="d-inline-block" [ngClass]="{'dropdown-filter': screenWidth>1023}"  #filterPrioDropDown="ngbDropdown">
+          <button class="btn btn-filter" id="dropdownForm1" ngbDropdownToggle>Filter Priority</button>
+          <div ngbDropdownMenu aria-labelledby="filterPriority" (mouseleave)="closeDropdown(filterPrioDropDown)">
+            <form>
+              <label><input type="checkbox" name="priority_High" (change)="filterPriorityChanged('High')" checked>High</label><br>
+              <label><input type="checkbox" name="priority_Normal" (change)="filterPriorityChanged('Normal')" checked>Normal</label><br>
+              <label><input type="checkbox" name="priority_Low" (change)="filterPriorityChanged('Low')" checked>Low</label>
+            </form>
+          </div>
+        </div>
+
+        <!-- FILTER PROJECT (Show only specific projects checkbox dropdown) -->
+        <div ngbDropdown class="d-inline-block" [ngClass]="{'dropdown-filter': screenWidth>1023}" #filterProjDropDown="ngbDropdown">
+          <button class="btn btn-filter" id="dropdownForm1" ngbDropdownToggle>Filter Project</button>
+          <div ngbDropdownMenu aria-labelledby="filterProject" (mouseleave)="closeDropdown(filterProjDropDown)">
+            <form>
+              <div *ngFor="let item of projects">
+                <label><input type="checkbox" name="project_{{item}}" (change)="filterProjectChanged(item)" checked>{{item}}</label>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- SAVE SETTINGS -->
+        <div class="save-filter" (click)="filterSaved()">
+          <i class="fas fa-save"></i>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Content -->
+<div class="content" id="content">
+  <router-outlet></router-outlet>
+</div>

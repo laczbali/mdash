@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+
+    <!-- Overall card settings -->
+
+    <!-- Inner-card settings -->
+    <div class="col-lg-4">
+      <div class="card">
+
+        <!-- Header -->
+        <div class="row">
+          <h6>qBittorrent API</h6>
+        </div>
+        <!-- API URL -->
+        <div class="row row-field">
+          <div class="col-lg-3 col-label" [ngClass]="{'text-center': screenWidth<1620}">URL</div>
+          <div class="col col-input">
+            <input type="text" class="form-control" [formControl]="torrentUrl">
+          </div>
+        </div>
+        <!-- API Usernme -->
+        <div class="row row-field">
+          <div class="col-lg-3 col-label" [ngClass]="{'text-center': screenWidth<1620}">Username</div>
+          <div class="col col-input">
+            <input type="text" class="form-control" [formControl]="torrentUser">
+          </div>
+        </div>
+        <!-- API Password -->
+        <div class="row row-field">
+          <div class="col-lg-3 col-label" [ngClass]="{'text-center': screenWidth<1620}">Password</div>
+          <div class="col col-input">
+            <input type="password" class="form-control" [formControl]="torrentPass">
+          </div>
+        </div>
+        <!-- SAVE -->
+        <div class="row row-save" [ngClass]="{'justify-content-center': screenWidth<1620}">
+            <button type="button" class="btn btn-success" (click)="saveButtonClicked()">Save</button>
+            <button type="button" class="btn btn-warning ml-3" (click)="cancelButtonClicked()">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

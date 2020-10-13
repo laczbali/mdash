@@ -1,0 +1,161 @@
+<div class="container">
+  <div class="row">
+
+    <!-- Colors -->
+    <div class="col-lg-4">
+      <!-- Main color -->
+      <div class="card">
+        <div class="row">
+          <h6>Main color</h6>
+        </div>
+
+        <div class="row">
+          <div class="col-4 colorname">Pacific Blue</div>
+          <div class="col-4 colorname">Dusty Gray</div>
+          <div class="col-4 colorname">Custom</div>
+        </div>
+
+        <div class="row">
+          <div class="col-4">
+            <div class="color-field" id="defaultUiColor0"></div>
+          </div>
+          <div class="col-4">
+            <div class="color-field" id="defaultUiColor1"></div>
+          </div>
+          <div class="col-4">
+            <input class="color-field" [(colorPicker)]="uiColor" [style.background]="uiColor" [cpOutputFormat]="'rgba'"
+              [cpAlphaChannel]="'disabled'" (colorPickerChange)="uiColorChanged()" />
+          </div>
+        </div>
+
+        <div class="row mt-1">
+          <div class="col-4 col-radio"><input type="radio" [formControl]="selectedUIColor" name="selectedUIColor"
+              (change)="uiColorSelectionChanged()" value="DEFAULT_0"></div>
+          <div class="col-4 col-radio"><input type="radio" [formControl]="selectedUIColor" name="selectedUIColor"
+              (change)="uiColorSelectionChanged()" value="DEFAULT_1"></div>
+          <div class="col-4 col-radio"><input type="radio" [formControl]="selectedUIColor" name="selectedUIColor"
+              (change)="uiColorSelectionChanged()" value="CUSTOM"></div>
+        </div>
+      </div>
+
+      <!-- Text Color -->
+      <div class="card">
+        <div class="row">
+          <h6>Text color</h6>
+        </div>
+
+        <div class="row">
+          <div class="col-6 colorname">Porcelain</div>
+          <div class="col-6 colorname">Custom</div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="color-field" id="defaultTextColor0"></div>
+          </div>
+          <div class="col-6"><input class="color-field" [(colorPicker)]="textColor" [style.background]="textColor"
+              [cpOutputFormat]="'rgba'" [cpAlphaChannel]="'disabled'" (colorPickerChange)="textColorChanged()" />
+          </div>
+        </div>
+
+        <div class="row mt-1">
+          <div class="col-6 col-radio"><input type="radio" [formControl]="selectedTextColor" name="selectedTextColor"
+              (change)="textColorSelectionChanged()" value="DEFAULT_0"></div>
+          <div class="col-6 col-radio"><input type="radio" [formControl]="selectedTextColor" name="selectedTextColor"
+              (change)="textColorSelectionChanged()" value="CUSTOM"></div>
+        </div>
+      </div>
+
+      <!-- Background Color-->
+      <div class="card">
+        <div class="row">
+          <h6>Background color</h6>
+        </div>
+
+        <div class="row">
+          <div class="col-6 colorname">Nero</div>
+          <div class="col-6 colorname">Custom</div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <div class="color-field" id="defaultBackgroundColor0"></div>
+          </div>
+          <div class="col-6"><input class="color-field" [(colorPicker)]="backgroundColor"
+              [style.background]="backgroundColor" [cpOutputFormat]="'rgba'" [cpAlphaChannel]="'disabled'"
+              (colorPickerChange)="backgroundColorChanged()" />
+          </div>
+        </div>
+
+        <div class="row mt-1">
+          <div class="col-6 col-radio"><input type="radio" [formControl]="selectedBackgroundColor"
+              name="selectedBackgroundColor" (change)="backgroundColorSelectionChanged()" value="DEFAULT_0"></div>
+          <div class="col-6 col-radio"><input type="radio" [formControl]="selectedBackgroundColor"
+              name="selectedBackgroundColor" (change)="backgroundColorSelectionChanged()" value="CUSTOM"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Background -->
+    <div class="col-lg-4">
+      <!-- Background color -->
+      <div class="card">
+        <div class="row">
+          <h6>Background Image URL</h6>
+        </div>
+
+        <div class="row">
+          <div class="col-xl-9 col-lg-12"><input type="text" class="form-control" [formControl]="backgroundImage">
+          </div>
+          <div class="col-xl-3 col-lg-12"><button type="button" class="btn btn-primary"
+              (click)="backgroundImageClicked()">Set</button></div>
+        </div>
+      </div>
+
+      <!-- Background gradient -->
+      <div class="card">
+        <div class="row">
+          <h6>Background Gradient</h6>
+        </div>
+
+        <div class="row">
+          <mv-slider id="gradient-slider" [(value)]="backgroundGradient" [min]="1" [max]="100"
+            (change)="backgroundGradientChanged()">
+          </mv-slider>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Other -->
+    <div class="col-lg-4">
+      <div class="card">
+        <div class="row">
+          <h6>Other</h6>
+        </div>
+
+        <div class="row">
+          Coming soon!
+        </div>
+
+        <!--
+          Default main tab
+          Kiosk mode,
+          Black&White mode
+        -->
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Buttons -->
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn btn-success" (click)="saveButtonClicked()">Save</button>
+      <button type="button" class="btn btn-warning ml-3" (click)="cancelButtonClicked()">Cancel</button>
+    </div>
+  </div>
+
+</div>

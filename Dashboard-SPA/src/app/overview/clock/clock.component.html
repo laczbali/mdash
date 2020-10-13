@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row top-part">
+
+    <div class="col">
+      <div class="time">
+        <div class="time-component hour">{{padNumber(hours)}}</div>
+        <div class="time-component minute">:{{padNumber(minutes)}}</div>
+        <progressbar class="seconds" [max]="59" [value]="seconds" [animate]="true"></progressbar>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="day">{{day}}</div>
+      <div class="date">{{date}}</div>
+    </div>
+
+  </div>
+</div>

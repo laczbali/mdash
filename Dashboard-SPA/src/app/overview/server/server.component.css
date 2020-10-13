@@ -1,0 +1,28 @@
+.header {
+  font-weight: 600;
+  background-color: rgba(var(--main-color), 0.6);
+  margin-bottom: 2px;
+}
+
+.header:first-of-type {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.content {
+  margin-bottom: 2px;
+}
+
+.drive-name {
+    margin-top: -15px;
+}
+
+.process {
+  font-size: 90%;
+}
+
+.footer {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  font-size: 70%;
+}

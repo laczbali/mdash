@@ -1,0 +1,132 @@
+<!-- Full navbar -->
+<div class="full-navbar" *ngIf="screenWidth >= 1024">
+	<!-- Logged-in navbar -->
+	<div class="navdiv logged-in" *ngIf="loggedIn()">
+		<div class="title">
+			<div>
+				<!-- <img src="assets/img/logo-white-rotated.svg" *ngIf="!isTextDark()">
+				<img src="assets/img/logo-black-rotated.svg" *ngIf="isTextDark()"> -->
+				<div class="title-text">DASH</div>
+			</div>
+		</div>
+
+		<ul class="nav flex-column">
+			<li class="nav-item" routerLinkActive="active">
+				<i class="fas fa-tv"></i>
+				<a class="nav-link" [routerLink]="['/overview']">Overview</a>
+			</li>
+			<!-- <li class="nav-item" routerLinkActive="active">
+				<i class="fas fa-columns"></i>
+				<a class="nav-link" [routerLink]="['/kanban']">Kanban</a>
+			</li>
+			<li class="nav-item" routerLinkActive="active">
+				<i class="fas fa-calendar-alt fa-disabled"></i>
+				<a class="nav-link disabled" [routerLink]="['/calendar']">Calendar</a>
+			</li> -->
+			<!-- Control home automation (Admin only) -->
+			<li class="nav-item" routerLinkActive="active" *ngIf="this.authService.isAdmin()">
+				<i class="fas fa-broadcast-tower fa-disabled"></i>
+				<a class="nav-link disabled" [routerLink]="['/control']">Control</a>
+			</li>
+			<li class="nav-item" routerLinkActive="active">
+				<i class="fas fa-cogs"></i>
+				<a class="nav-link" [routerLink]="['/settings']">Settings</a>
+			</li>
+			<!-- Admin settings (Admin only) -->
+			<!-- <li class="nav-item" routerLinkActive="active" *ngIf="this.authService.isAdmin()">
+				<i class="fas fa-user-shield fa-disabled"></i>
+				<a class="nav-link disabled" [routerLink]="['/admin']">Admin</a>
+			</li> -->
+			<li class="nav-item" routerLinkActive="active">
+				<i class="fas fa-sign-out-alt"></i>
+				<a class="nav-link" [routerLink]="['/home']" (click)="logout()">Log Out</a>
+			</li>
+		</ul>
+		<div class="username">
+			<a [routerLink]="['/settings']">{{authService.decodedToken.unique_name}}</a>
+		</div>
+	</div>
+
+	<!-- Logged-out navbar -->
+	<div class="navdiv logged-out" *ngIf="!loggedIn()">
+		<div class="title">
+			<a [routerLink]="['/home']">
+				<!-- <img src="assets/img/logo-white-rotated.svg" *ngIf="!isTextDark()">
+				<img src="assets/img/logo-black-rotated.svg" *ngIf="isTextDark()"> -->
+				<div>Dashboard</div>
+			</a>
+		</div>
+
+		<ul class="nav flex-column" *ngIf="false">
+			<!-- <li class="nav-item">
+				<i class="fas fa-home"></i>
+				<a class="nav-link" href="#">Home</a>
+			</li>
+			<li class="nav-item">
+				<i class="fas fa-clipboard-list"></i>
+				<a class="nav-link" href="#features">Features</a>
+			</li>
+			<li class="nav-item">
+				<i class="fas fa-user-plus"></i>
+				<a class="nav-link" href="#register">Register</a>
+			</li>
+			<li class="nav-item">
+				<i class="fas fa-address-card"></i>
+				<a class="nav-link" href="#about">About</a>
+			</li>
+			<li class="nav-item">
+				<i class="fas fa-sign-in-alt"></i>
+				<a class="nav-link" href="#login">Log In</a>
+			</li> -->
+		</ul>
+	</div>
+</div>
+
+<!-- Dropdown navbar -->
+<div class="small-navbar" *ngIf="screenWidth < 1024">
+	<!-- Logged-in navbar -->
+	<div class="navbar-content" *ngIf="loggedIn()">
+
+		<div class="dropdown btn-group" dropdown>
+
+			<button id="button-basic" dropdownToggle type="button" class="btn btn-primary title"
+				aria-controls="dropdown-basic">
+				<!-- <img src="assets/img/logo-white-rotated.svg" *ngIf="!isTextDark()">
+				<img src="assets/img/logo-black-rotated.svg" *ngIf="isTextDark()"> -->
+				Dashboard
+				<span class="caret"></span>
+			</button>
+
+			<ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
+				<li role="menuitem">
+					<a class="dropdown-item" [routerLink]="['/overview']">Overview</a>
+				</li>
+				<!-- <li role="menuitem">
+					<a class="dropdown-item" [routerLink]="['/kanban']">Kanban</a>
+				</li>
+				<li role="menuitem" class="disabled">
+					<a class="dropdown-item disabled" [routerLink]="['/calendar']">Calendar</a>
+				</li> -->
+				<!-- Control home automation (Admin only) -->
+				<li role="menuitem" class="disabled" *ngIf="this.authService.isAdmin()">
+					<a class="dropdown-item disabled" [routerLink]="['/control']">Control</a>
+				</li>
+				<li role="menuitem">
+					<a class="dropdown-item" [routerLink]="['/settings']">Settings</a>
+				</li>
+				<!-- Admin settings (Admin only) -->
+				<!-- <li role="menuitem" *ngIf="this.authService.isAdmin()">
+					<a class="dropdown-item disabled" [routerLink]="['/admin']">Admin</a>
+				</li> -->
+				<li class="divider dropdown-divider"></li>
+				<li role="menuitem">
+					<a class="dropdown-item" [routerLink]="['/home']" (click)="logout()">Log Out</a>
+				</li>
+			</ul>
+
+		</div>
+
+	</div>
+
+	<!-- No navbar needed if not logged-in-->
+</div>

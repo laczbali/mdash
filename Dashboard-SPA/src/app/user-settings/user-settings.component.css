@@ -1,0 +1,38 @@
+/************
+    General
+************/
+.nav {
+  background-color: rgba(var(--main-color), 0.3);
+  color: rgba(var(--text-color-full));
+}
+
+.nav-item {
+  transition: background-color 0.6s;
+}
+
+.nav-item:hover {
+  background-color: rgba(var(--main-color), 0.5);
+}
+
+a {
+  color: rgba(var(--text-color-full));
+}
+
+.active {
+  background-color: rgba(var(--main-color-full));
+}
+
+/************
+    Small
+************/
+.nav-small {
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-content: space-evenly;
+}
+
+.nav-item-small {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}

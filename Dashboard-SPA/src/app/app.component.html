@@ -1,0 +1,15 @@
+<div class="container-main" *ngIf="!this.authService.loggedIn() || this.settingsService.loaded()"
+    [ngClass]="{'container-main-logged-in': loggedIn(), 'container-main-full': screenWidth >= 1024, 'container-main-small': screenWidth < 1024}">
+
+    <div class="container-nav"
+        [ngClass]="{'container-nav-full': screenWidth >= 1024, 'container-nav-small': screenWidth < 1024}">
+        <app-nav></app-nav>
+    </div>
+
+    <div class="container-content"
+        [ngClass]="{'container-content-full': screenWidth >= 1024, 'container-content-small': screenWidth < 1024}">
+        <!--this should go in the container-content div:  [@routeAnimation]="getMainDepth(mainOutlet)" -->
+        <router-outlet #mainOutlet="outlet"></router-outlet>
+    </div>
+
+</div>

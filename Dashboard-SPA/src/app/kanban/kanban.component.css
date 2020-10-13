@@ -1,0 +1,117 @@
+/************
+    General
+************/
+.container {
+  max-width: 100%;
+  padding: 0;
+}
+
+.header-row {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-color: rgba(var(--main-color), 0.3);
+  color: rgba(var(--text-color-full));
+}
+
+.nav-item {
+  transition: background-color 0.6s;
+}
+
+.nav-item:hover {
+  background-color: rgba(var(--main-color), 0.5);
+}
+
+a {
+  color: rgba(var(--text-color-full));
+}
+
+.active {
+  background-color: rgba(var(--main-color-full));
+}
+
+.divider {
+  margin: inherit;
+  font-weight: 100;
+  font-size: 170%;
+}
+
+.filters {
+  margin: inherit;
+  justify-content: space-evenly;
+}
+
+.dropdown-filter {
+  margin-right: 20px;
+}
+
+.btn {
+  color: rgba(var(--text-color-full));
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.3rem rgba(var(--main-color-full));
+}
+
+.dropdown-toggle::after {
+  transition: all 0.3s;
+}
+
+.dropdown-toggle[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu {
+  /* transition: all 1s; */
+  width: max-content;
+}
+
+label {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  margin-right: 5px;
+}
+
+.save-filter {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  font-size: 125%;
+}
+
+.fa-save {
+  transition: all 0.3s;
+}
+
+.fa-save:hover {
+  transform: rotate(-25deg);
+}
+
+.fa-save:active {
+  transition: all 0.01s;
+  transform: scale(0.8) rotate(-25deg);
+}
+
+.content {
+  height: calc(100% - 70px);
+}
+
+/************
+      Small
+  ************/
+.nav-small {
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-content: space-evenly;
+}
+
+.nav-item-small {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}

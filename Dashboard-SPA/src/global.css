@@ -1,0 +1,31 @@
+/********************/
+/* Global variables */
+/********************/
+body {
+  --main-color: 0, 151, 230;
+  --main-color-full: var(--main-color), 1;
+
+  --text-color: 236, 240, 241;
+  --text-color-full: var(--text-color), 1;
+  color: rgba(var(--text-color-full));
+  font-family: "Roboto", sans-serif;
+
+  --background-color: 34, 34, 34;
+  --background-color-full: var(--background-color), 1;
+  background-color: rgba(var(--background-color-full));
+
+  --background-image-url: url(https://i.redd.it/t9np10qvti931.png);
+  --backgrond-gradient: 0.7;
+}
+
+/*******************/
+/* Global elements */
+/*******************/
+
+/* Progress bar */
+.progress {
+  background-color: rgba(var(--background-color-full));
+}
+.progress-bar {
+  background-color: rgba(var(--text-color-full));
+}

@@ -1,0 +1,94 @@
+<div class="container">
+  <div class="row row-content">
+
+
+    <!-- NEW ITEMS-->
+    <div class="col-md-4 col-status">
+      <div class="card">
+        <div class="category-header">New</div>
+
+        <div cdkDropList #newList="cdkDropList" [cdkDropListData]="newItems" [cdkDropListConnectedTo]="[inProgressList, doneList]"
+          class="drop-list" (cdkDropListDropped)="drop($event)" [cdkDropListSortingDisabled]="!filter.filterData.value.sort.allowCustom">
+          <div class="drop-item" *ngFor="let item of newItems" [hidden]="isHidden(item)" cdkDrag>
+              <div class="row">
+                <div class="col-10">
+                  <div class="item-header">{{item.projectName}} - {{item.storyName}}</div>
+                  <div class="item-name">{{item.taskName}}</div>
+                  <div class="item-footer">
+                    {{item.dueDate.getFullYear()}} / {{lookupMonth(item.dueDate.getMonth())}} /
+                    {{item.dueDate.getUTCDate() | number : '2.0-0'}}
+                  </div>
+                </div>
+                <div class="col-2 col-icon">
+                  <i class="fas fa-angle-double-up icon-high" *ngIf="item.priority == 1"></i>
+                  <i class="fas fa-angle-double-down icon-low" *ngIf="item.priority == -1"></i>
+                  <i class="fas fa-grip-lines icon-normal" *ngIf="item.priority == 0"></i>
+                </div>
+              </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- INPROGRESS ITEMS -->
+    <div class="col-md-4 col-status">
+      <div class="card">
+        <div class="category-header">In Progress</div>
+
+        <div cdkDropList #inProgressList="cdkDropList" [cdkDropListData]="inProgressItems" [cdkDropListConnectedTo]="[newList, doneList]"
+          class="drop-list" (cdkDropListDropped)="drop($event)" [cdkDropListSortingDisabled]="!filter.filterData.value.sort.allowCustom">
+          <div class="drop-item" *ngFor="let item of inProgressItems" [hidden]="isHidden(item)" cdkDrag>
+              <div class="row">
+                <div class="col-10">
+                  <div class="item-header">{{item.projectName}} - {{item.storyName}}</div>
+                  <div class="item-name">{{item.taskName}}</div>
+                  <div class="item-footer">
+                    {{item.dueDate.getFullYear()}} / {{lookupMonth(item.dueDate.getMonth())}} /
+                    {{item.dueDate.getUTCDate() | number : '2.0-0'}}
+                  </div>
+                </div>
+                <div class="col-2 col-icon">
+                  <i class="fas fa-angle-double-up icon-high" *ngIf="item.priority == 1"></i>
+                  <i class="fas fa-angle-double-down icon-low" *ngIf="item.priority == -1"></i>
+                  <i class="fas fa-grip-lines icon-normal" *ngIf="item.priority == 0"></i>
+                </div>
+              </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DONE ITEMS -->
+    <div class="col-md-4 col-status">
+      <div class="card">
+        <div class="category-header">Done</div>
+
+        <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="doneItems" [cdkDropListConnectedTo]="[newList, inProgressList]"
+          class="drop-list" (cdkDropListDropped)="drop($event)" [cdkDropListSortingDisabled]="!filter.filterData.value.sort.allowCustom">
+          <div class="drop-item" *ngFor="let item of doneItems" [hidden]="isHidden(item)" cdkDrag>
+              <div class="row">
+                <div class="col-10">
+                  <div class="item-header">{{item.projectName}} - {{item.storyName}}</div>
+                  <div class="item-name">{{item.taskName}}</div>
+                  <div class="item-footer">
+                    {{item.dueDate.getFullYear()}} / {{lookupMonth(item.dueDate.getMonth())}} /
+                    {{item.dueDate.getUTCDate() | number : '2.0-0'}}
+                  </div>
+                </div>
+                <div class="col-2 col-icon">
+                  <i class="fas fa-angle-double-up icon-high" *ngIf="item.priority == 1"></i>
+                  <i class="fas fa-angle-double-down icon-low" *ngIf="item.priority == -1"></i>
+                  <i class="fas fa-grip-lines icon-normal" *ngIf="item.priority == 0"></i>
+                </div>
+              </div>
+            </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div>
+</div>

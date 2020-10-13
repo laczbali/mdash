@@ -1,0 +1,47 @@
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playing {
+  font-weight: 100;  
+  background-color: rgba(var(--main-color), 0.3);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.title {
+  font-size: 160%;
+  font-weight: 600;
+}
+
+.buttons {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: scale(0.9);
+  transition-duration: 0.2s;
+  color: rgba(var(--text-color), 0.8);
+}
+
+.main-button {
+  font-size: 170%;
+}
+
+.play-button {
+  font-size: 210%;
+}
+
+.extra-info {
+  font-size: 80%;
+}

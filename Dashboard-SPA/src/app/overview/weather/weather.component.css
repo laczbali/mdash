@@ -1,0 +1,88 @@
+/***************
+    Top row
+***************/
+.row-top {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.col-main {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.main-field {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
+.col-main-icon {
+  text-align: center;
+  min-width: 60px;
+}
+
+.main-icon {
+  font-size: 60px;
+  width: 60px;
+  height: 60px;
+}
+
+.col-main-temp {
+  min-width: 100px;
+}
+
+.main-temp {
+  font-size: 45px;
+}
+
+.top-row-small{
+    justify-content: center;
+}
+
+/***************
+    Middle row
+***************/
+.bottom-field-row {
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+
+.bottom-field-subrow {
+  justify-content: center;
+}
+
+.daily-icon {
+  width: 20px;
+  margin: auto;
+  justify-content: center;
+}
+
+.small-col{
+    justify-content: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/***************
+    Footer
+***************/
+.row-footer {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.footer-field {
+  font-size: 70%;
+}
+
+.footer-field-api {
+  text-align: left;
+}
+
+.footer-field-info {
+  text-align: right;
+}

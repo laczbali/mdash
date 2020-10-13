@@ -1,0 +1,19 @@
+<!-- Navbar -->
+<div>
+    <ul class="nav" [ngClass]="{'nav-small': screenWidth<1024}">
+        <li class="nav-item" routerLinkActive="active" [ngClass]="{'nav-item-small': screenWidth<1024}">
+            <a class="nav-link" [routerLink]="['ui']">Appearance</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [ngClass]="{'nav-item-small': screenWidth<1024}">
+            <a class="nav-link" [routerLink]="['overview']">Overview</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active" [ngClass]="{'nav-item-small': screenWidth<1024}">
+            <a class="nav-link" [routerLink]="['user']">User Details</a>
+        </li>
+    </ul>
+</div>
+
+<!-- Content -->
+<div class="content">
+    <router-outlet></router-outlet>
+</div>

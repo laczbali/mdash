@@ -1,0 +1,43 @@
+.header {
+  background-color: rgba(var(--main-color), 0.6);
+  font-weight: 600;
+}
+
+.icon-header {
+  border-top-left-radius: 10px;
+  margin-right: 2px;
+  align-items: center;
+  display: flex;
+}
+
+.fa-exchange-alt{
+  transform: rotate(90deg) scaleX(-1);
+  scale: -1;
+  font-size: 130%;
+}
+
+.content-header {
+  padding-left: 5px;
+}
+
+.content-header:first-of-type {
+  border-top-right-radius: 10px;
+  margin-bottom: 2px;
+}
+
+/***************
+    Footer
+***************/
+.row-footer {
+  padding-top: 10px;
+  padding-bottom: 5px;
+}
+
+.footer-field {
+  font-size: 70%;
+}
+
+a {
+  color: rgba(var(--text-color-full));
+  text-decoration: underline;
+}

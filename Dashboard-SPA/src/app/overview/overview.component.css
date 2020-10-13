@@ -1,0 +1,19 @@
+.container {
+  max-width: calc(100% - 30px);
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-right: 15px;
+}
+
+.col-sm-4 {
+  min-width: 260px;
+}
+
+.card {
+  width: calc(100% - 30px);
+  min-width: 250px;
+  margin-bottom: 30px;
+  background-color: rgba(var(--main-color), 0.3);
+  color: rgba(var(--text-color-full));
+  border-radius: 10px;
+}

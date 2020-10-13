@@ -1,0 +1,47 @@
+<div class="container">
+
+    <div class="row content">
+        <div class="col-1 header icon-header">
+            <i class="fas fa-exchange-alt"></i>
+        </div>
+        <div class="col info">
+            
+            <!-- Active downloads -->
+            <div class="row header content-header" [ngClass]="{'justify-content-center': screenWidth<1620}">
+                <div class="col-6 text-left pl-0">
+                    Downloading ({{downloadData.downloads.length}}) @ {{downloadData.totalDlSpeed/1000000 | number : '1.0-1'}} MB/s
+                </div>
+                <div class="col-6 text-right" *ngIf="downloadData.maxEta>0">
+                    ETA {{getEta(downloadData.maxEta)}}
+                </div>
+            </div>
+
+            <!-- Seeding -->
+            <div class="row header content-header" [ngClass]="{'justify-content-center': screenWidth<1620}">
+                <div *ngIf="(downloadData.totalUpSpeed/1000)<1000">
+                    Uploading ({{downloadData.numOfUpload}} / {{downloadData.totalTorrents}}) @
+                    {{downloadData.totalUpSpeed/1000 | number : '1.0-1'}} KB/s
+                </div>
+                <div *ngIf="(downloadData.totalUpSpeed/1000)>=1000">
+                    Uploading ({{downloadData.numOfUpload}} / {{downloadData.totalTorrents}}) @
+                    {{downloadData.totalUpSpeed/1000000 | number : '1.0-1'}} MB/s
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="row row-footer">
+        <div class="col-6 footer-field text-left">Powered by
+            <a target="_blank" href="{{downloadData.uiUrl}}" referrerpolicy="no-referrer">qBittorrent</a>
+        </div>
+        <div class="col-6 footer-field text-right">
+            <div style="cursor: pointer;" (click)="getTorrentData(true)">
+                <i class="fas fa-sync-alt"></i>
+                {{getQueryTime()}}
+            </div>
+        </div>
+    </div>
+
+</div>
