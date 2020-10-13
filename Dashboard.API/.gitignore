@@ -1,6 +1,7 @@
 *.db
 /cache
-secrets.json
+
+appsettings.json
 
 # compiled output
 /bin
