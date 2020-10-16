@@ -4,6 +4,11 @@
   align-items: center;
 }
 
+.time-col {
+  min-width: 200px;
+  margin: auto;
+}
+
 .time {
   text-align: center;
 }

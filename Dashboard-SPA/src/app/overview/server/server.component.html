@@ -1,13 +1,13 @@
 <div class="container">
 
   <div class="row header">
-    <div class="col-6 text-left">
+    <div class="col-md text-left vpn-field">
       <i class="fas fa-network-wired"></i>
       {{vpnData.clientList.length}} clients connected to VPN
     </div>
-    <div class="col-6 text-right">
+    <!-- <div class="col-md vpn-field">
       {{vpnData.sumTrafficMbytes|number: '1.2-2'}} MB overall traffic
-    </div>
+    </div> -->
   </div>
 
   <div class="row header">
@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="row content">
-    <div class="col-3 drive text-center" *ngFor="let drive of storageData">
+    <div class="drive text-center" *ngFor="let drive of storageData">
       <ngx-gauge [max]="drive.sizeGbytes" [value]="drive.sizeGbytes-drive.freeGbytes|number: '1.0-0'" [append]="'GB'"
         [label]="'/ '+(drive.sizeGbytes/930|number: '1.0-1')+' TB'"
         [type]="'semi'" [thick]="6" [cap]="'round'" [size]="110"
@@ -33,11 +33,11 @@
     </div>
   </div>
   <div class="row content">
-    <div class="col-6 text-center">
+    <div class="col resource-col text-center">
       <i class="fas fa-microchip"></i>
       CPU: {{systemResources.processorUsedPercent | number: '1.2-2'}}%
     </div>
-    <div class="col-6 text-center">
+    <div class="col resource-col text-center">
       <i class="fas fa-memory"></i>
       RAM: {{(systemResources.memoryUsedGb/systemResources.memoryAllGb)*100 | number: '1.2-2'}}%
       ({{systemResources.memoryUsedGb | number: '1.0-0'}} / {{systemResources.memoryAllGb | number: '1.0-0'}}GB)
@@ -51,7 +51,7 @@
     </div>
   </div>
   <div class="row content">
-    <div class="col-3 process text-left" *ngFor="let process of processes">
+    <div class="col-sm-3 process text-left" *ngFor="let process of processes">
       <i class="fas fa-check-circle" *ngIf="process.running"></i>
       <i class="far fa-times-circle" *ngIf="!process.running"></i>
       {{process.name}}

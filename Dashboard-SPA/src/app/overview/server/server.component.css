@@ -13,12 +13,30 @@
   margin-bottom: 2px;
 }
 
+.icon-col {
+  max-width: 40px;
+}
+
+.vpn-field {
+  min-width: 260px;
+}
+
+.drive {
+  min-width: 130px;
+  margin: auto;
+}
+
 .drive-name {
     margin-top: -15px;
 }
 
+.resource-col {
+  min-width: 260px;
+}
+
 .process {
   font-size: 90%;
+  min-width: 130px;
 }
 
 .footer {

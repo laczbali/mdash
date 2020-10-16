@@ -1,3 +1,7 @@
+.content {
+  font-size: 90%;
+}
+
 .header {
   background-color: rgba(var(--main-color), 0.6);
   font-weight: 600;
@@ -8,6 +12,8 @@
   margin-right: 2px;
   align-items: center;
   display: flex;
+  min-width: 45px;
+  max-width: 45px;
 }
 
 .fa-exchange-alt{
@@ -23,6 +29,10 @@
 .content-header:first-of-type {
   border-top-right-radius: 10px;
   margin-bottom: 2px;
+}
+
+.field {
+  min-width: 150px;
 }
 
 /***************

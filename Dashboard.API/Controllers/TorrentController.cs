@@ -92,6 +92,8 @@ namespace Dashboard.API.Controllers
             }
 
             return Ok(torrentData);
+            // string deubgResult = "{\"downloads\":[{\"name\":\"This.Is.A.Long.Torrent.Name.For.Testing.Use\",\"progress\":0.0130349845,\"eta\":3655},{\"name\":\"And.For.Testing-and-such.This.is.even-longer\",\"progress\":0.0125262393,\"eta\":3789}],\"numOfUpload\":3,\"totalDlSpeed\":12182301,\"totalUpSpeed\":655837,\"totalTorrents\":140,\"querytime\":\"2020-10-16T14:06:51.433848+02:00\",\"maxEta\":3789,\"uiUrl\":\"http://localhost:8080\"}";
+            // return Ok(deubgResult);
         }
 
         private async Task<string> LoginToAPI(string clientUsername)
